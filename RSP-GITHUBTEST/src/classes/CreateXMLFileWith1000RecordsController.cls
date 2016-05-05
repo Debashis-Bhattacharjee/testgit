@@ -1,0 +1,21 @@
+public with sharing class CreateXMLFileWith1000RecordsController 
+{
+    public Transient String finalXMLContent{get;set;}
+    //
+    
+    Public CreateXMLFileWith1000RecordsController()
+    {
+        String InnerXMLContent = '';
+        finalXMLContent = '';
+        String Header = '<?xml version="1.0" encoding="UTF-8" ?><interface name="TIS Warrant Interface File" week="201652" interface_no="365" date="21112014" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="warrant_tis.xsd">';
+        String Footer = '<records_total>3500</records_total><amounts_total>118.9</amounts_total></interface>'+';';
+        String repeatContent = '<transaction><record_type>S</record_type><warrant_account_number>6653</warrant_account_number><warrant_number>6959943</warrant_number><amount>19.20</amount><debit_credit_marker>D</debit_credit_marker><cost_centre /><selling_location>6888</selling_location><selling_business>HS </selling_business><date_of_exchange>22032016</date_of_exchange><number_of_passengers>1</number_of_passengers><product>2BAF</product><journey_origin>SHENFIELD</journey_origin><journey_destination>LIVERPOOL STREET LONDON</journey_destination><route>ANY PERMITTED</route><passenger_name></passenger_name><ticket_number>82459</ticket_number></transaction><transaction><record_type>S</record_type><warrant_account_number>60653</warrant_account_number><warrant_number>7358411</warrant_number><amount>13.10</amount><debit_credit_marker>D</debit_credit_marker><cost_centre /><selling_location>1429</selling_location><selling_business>EK </selling_business><date_of_exchange>22032016</date_of_exchange><number_of_passengers>1</number_of_passengers><product>2BDY</product><journey_origin>DALSTON KINGSLAND</journey_origin><journey_destination>BENFLEET</journey_destination><route>HACKNEY WICK</route><passenger_name></passenger_name><ticket_number>31475</ticket_number></transaction><transaction><record_type>S</record_type><warrant_account_number>9079</warrant_account_number><warrant_number>6620996</warrant_number><amount>6.10</amount><debit_credit_marker>D</debit_credit_marker><cost_centre /><selling_location>6092</selling_location><selling_business>HQ </selling_business><date_of_exchange>22032016</date_of_exchange><number_of_passengers>1</number_of_passengers><product>2BDY</product><journey_origin>STEVENAGE</journey_origin><journey_destination>WELWYN GARDEN CITY</journey_destination><route>ANY PERMITTED</route><passenger_name></passenger_name><ticket_number>5452</ticket_number></transaction><transaction><record_type>S</record_type><warrant_account_number>340</warrant_account_number><warrant_number>7325956</warrant_number><amount>27.00</amount><debit_credit_marker>D</debit_credit_marker><cost_centre /><selling_location>6092</selling_location><selling_business>HQ </selling_business><date_of_exchange>22032016</date_of_exchange><number_of_passengers>1</number_of_passengers><product>2BAF</product><journey_origin>STEVENAGE</journey_origin><journey_destination>U12 LONDN</journey_destination><route>ANY PERMITTED</route><passenger_name></passenger_name><ticket_number>5266</ticket_number></transaction><transaction><record_type>S</record_type><warrant_account_number>40004</warrant_account_number><warrant_number>1487582</warrant_number><amount>8.50</amount><debit_credit_marker>D</debit_credit_marker><cost_centre /><selling_location>6880</selling_location><selling_business>HS </selling_business><date_of_exchange>22032016</date_of_exchange><number_of_passengers>1</number_of_passengers><product>2BDY</product><journey_origin>HOCKLEY ESSEX</journey_origin><journey_destination>LONDON BR</journey_destination><route>ANY PERMITTED</route><passenger_name></passenger_name><ticket_number>74800</ticket_number></transaction>';
+        for(integer i=0;i<700;i++)
+        {
+            InnerXMLContent = InnerXMLContent+repeatContent;
+        }
+        finalXMLContent = Header+InnerXMLContent+Footer;
+        
+        system.debug('-------------------finalXMLContent--------------------->'+finalXMLContent);
+    }
+}
